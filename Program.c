@@ -84,3 +84,46 @@ void ConvertToNumber()
             ;
     }
 }
+
+// MAIN FUNCTION TO LET USER CHOOSE CONVERSION TYPE
+int main()
+{
+    int choice;
+
+    while (1)
+    {
+        // MENU OPTIONS FOR THE USER
+        printf("\nBinary Converter\n");
+        printf("0. Convert number to binary\n");
+        printf("1. Convert binary to number\n");
+        printf("2. Exit\n");
+
+        // GET USER CHOICE
+        printf("Enter your choice: ");
+        if (scanf("%d", &choice) != 1)
+        {
+            printf("Invalid input. Please enter a valid choice.\n");
+            while (getchar() != '\n')
+                ; // CLEAR INVALID INPUT
+            continue;
+        }
+
+        // HANDLE CHOICE SELECTION
+        switch (choice)
+        {
+        case 0:
+            ConvertToBinary();
+            break;
+        case 1:
+            ConvertToNumber();
+            break;
+        case 2:
+            printf("Exiting program\n");
+            return 0;
+        default:
+            printf("Invalid choice. Please enter 0, 1, or 2.\n");
+        }
+    }
+
+    return 0;
+}
